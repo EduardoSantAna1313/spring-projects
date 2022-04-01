@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "da5a05c1-e187-4e4a-b660-732be60b53f4",
+		"name": "app.start",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "missing parameter nomeCli",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// test the response code 500",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"",
+									"// valite the message",
+									"const json = JSON.parse(pm.response.text());",
+									"pm.test(\"Required parameter nomeCli\", function() {",
+									"    pm.expect(json.message).to.equal(\"Missing required parameters: [nomeCli].\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codCli\": 1,\n    \"nomeCli\": \"\",\n    \"dataNasc\": null,\n    \"cidadeNasc\": \"City\",\n    \"paiCli\": null,\n    \"maeCli\": null,\n    \"cpfCli\": null,\n    \"rgCli\": null,\n    \"dataCad\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing parameter cidadeNasc",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// test the response code 500",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"",
+									"// validate the message",
+									"const json = JSON.parse(pm.response.text());",
+									"pm.test(\"Required parameter cidadeNasc\", function() {",
+									"    pm.expect(json.message).to.equal(\"Missing required parameters: [cidadeNasc].\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codCli\": null,\n    \"nomeCli\": \"Test Client\",\n    \"dataNasc\": null,\n    \"cidadeNasc\": \"\",\n    \"paiCli\": null,\n    \"maeCli\": null,\n    \"cpfCli\": null,\n    \"rgCli\": null,\n    \"dataCad\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clients",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var client = {",
+									"    \"nomeCli\": \"Test Client\",",
+									"    \"dataNasc\": null,",
+									"    \"cidadeNasc\": \"Test city\",",
+									"    \"paiCli\": \"Test Client Pai\",",
+									"    \"maeCli\": \"Test Client Mae\",",
+									"    \"cpfCli\": null,",
+									"    \"rgCli\": null,",
+									"    \"dataCad\": null",
+									"};",
+									"",
+									"pm.environment.set(\"post_client\", JSON.stringify(client));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// test the response code 500",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"// valite the message",
+									"const json = JSON.parse(pm.response.text());",
+									"pm.test(\"Successfully Saved!\", function() {",
+									"    pm.expect(json.message).to.equal(\"Successfully Saved!\");",
+									"});",
+									"",
+									"// set the codCli in the environment variables",
+									"pm.environment.set(\"codCli\", json.data.codCli);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{post_client}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clients readAll",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// test the response code 500",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"// valite the message",
+									"const json = JSON.parse(pm.response.text());",
+									"pm.test(\"Response ok\", function() {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"// validate not empty list",
+									"pm.test(\"Not empty\", function () {",
+									"    pm.expect(json[0]).not.eq(undefined);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clients detail error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// test the response code 500",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"// valite the message",
+									"const json = JSON.parse(pm.response.text());",
+									"pm.test(\"Response ok\", function() {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"// validate not empty list",
+									"pm.test(\"Not empty\", function () {",
+									"    pm.expect(json).is.eq(undefined);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client/1232",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"1232"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clients detail success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// test the response code 500",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"// valite the message",
+									"const json = JSON.parse(pm.response.text());",
+									"pm.test(\"Response ok\", function() {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"// validate not empty list",
+									"pm.test(\"Not empty\", function () {",
+									"    pm.expect(json).not.eq(undefined);",
+									"});",
+									"",
+									"const originalClient = JSON.parse(pm.environment.get(\"post_client\"));",
+									"",
+									"pm.test(\"Validate fields\", function() {",
+									"    pm.expect(json.codCli).to.equal(pm.environment.get(\"codCli\"));",
+									"    pm.expect(json.nomeCli).to.equal(originalClient.nomeCli);",
+									"    pm.expect(json.cidadeNasc).to.equal(originalClient.cidadeNasc);",
+									"    pm.expect(json.paiCli).to.equal(originalClient.paiCli);",
+									"    pm.expect(json.maeCli).to.equal(originalClient.maeCli);",
+									"    pm.expect(json.cpfCli).to.equal(originalClient.cpfCli);",
+									"    pm.expect(json.rgCli).to.equal(originalClient.rgCli);",
+									"    pm.expect(json.dataCad).to.equal(originalClient.dataCad);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client/{{codCli}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"{{codCli}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
