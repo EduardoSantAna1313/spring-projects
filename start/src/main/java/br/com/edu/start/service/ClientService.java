@@ -105,4 +105,13 @@ public class ClientService {
 		return findById.orElseThrow(() -> new AppException(RECORD_NOT_FOUND));
 	}
 
+	/**
+	 * List all clients.
+	 * 
+	 * @return
+	 */
+	public List<Client> list() {
+		return repository.findAll();
+	}
+
 }

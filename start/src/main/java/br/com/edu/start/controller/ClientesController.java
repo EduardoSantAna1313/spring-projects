@@ -1,6 +1,5 @@
 package br.com.edu.start.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import br.com.edu.start.service.ClientDTO;
 import br.com.edu.start.service.ClientService;
 
 /**
- * RestControler para os Clientes.
+ * RestControler to Clients.
  *
  * @author Eduardo
  */
@@ -30,15 +29,15 @@ import br.com.edu.start.service.ClientService;
 public class ClientesController {
 
 	@Autowired
-	private final ClientRepository clientesRespository;
+	private final ClientRepository clientRespository;
 
 	/**
 	 * New instance to ClientesController.
 	 * 
-	 * @param clientesRespository
+	 * @param clientRespository
 	 */
-	public ClientesController(final ClientRepository clientesRespository) {
-		this.clientesRespository = clientesRespository;
+	public ClientesController(final ClientRepository clientRespository) {
+		this.clientRespository = clientRespository;
 	}
 
 	/**
@@ -52,10 +51,11 @@ public class ClientesController {
 	public @ResponseBody ApiResponse post(@RequestBody final ClientDTO client) {
 
 		try {
-			final var business = new ClientService(clientesRespository);
+			final var business = new ClientService(clientRespository);
 
 			return ApiResponse.success(business.save(client));
 		} catch (final AppException error) {
+
 			return ApiResponse.error(error);
 		}
 
@@ -65,22 +65,12 @@ public class ClientesController {
 	 * List the clients.
 	 *
 	 * @return
-	 * 
-	 * @throws MessagingException
 	 */
 	@GetMapping(value = "/client", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Client> get() {
+	public List<Client> list() {
+		final var business = new ClientService(clientRespository);
 
-		final List<Client> listClientes = clientesRespository.findAll();
-
-		if (listClientes.isEmpty()) {
-
-			Client c = new Client();
-			c.setCidadeNasc("bla");
-			return Arrays.asList(c);
-		}
-
-		return listClientes;
+		return business.list();
 	}
 
 	/**
@@ -95,25 +85,20 @@ public class ClientesController {
 	@GetMapping(value = "/client/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Client detail(@PathVariable Integer id) throws AppException {
 
-		final var business = new ClientService(clientesRespository);
+		final var business = new ClientService(clientRespository);
 
-		try {
-			return business.get(id);
-		} catch (Exception e) {
-			throw e;
-		}
-
+		return business.get(id);
 	}
 
 	/**
 	 * Update the client
 	 *
-	 * @param obj
+	 * @param client
 	 * 
 	 * @return
 	 */
-	@PutMapping(value = "/put")
-	public @ResponseBody ResponseEntity<String> atualizaCliente(@RequestBody final Client client) {
+	@PutMapping(value = "/client/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<String> update(@RequestBody final ClientDTO client) {
 		return new ResponseEntity<>("PUT Response", HttpStatus.OK);
 	}
 
