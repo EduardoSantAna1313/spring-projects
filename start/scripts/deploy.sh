@@ -12,8 +12,9 @@ sleep 5
 
 printf "\n\n\n${GREEN}installing the app!\n${NC}"
 
-cp ../target/start-0.0.1-SNAPSHOT.jar /tmp/
+mv ../target/start-0.0.1-SNAPSHOT.jar /tmp/
 
+rm -r ../target/
 echo "Starting the server..."
 
 ./start.sh &

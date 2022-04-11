@@ -1,6 +1,6 @@
 echo "Removing previous version..."
 
-rm /target/start-0.0.1-SNAPSHOT.jar
+rm -r ../target/
 
 echo "Building the project..."
 
