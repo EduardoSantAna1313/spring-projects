@@ -1,8 +1,13 @@
-echo "Compilando projeto..."
+echo "Removing previous version..."
+
+rm /target/start-0.0.1-SNAPSHOT.jar
+
+echo "Building the project..."
 
 cd ../
+
 mvn compile
 
-echo "Empacotando projeto..."
+echo "Packing the project..."
 
 mvn clean install

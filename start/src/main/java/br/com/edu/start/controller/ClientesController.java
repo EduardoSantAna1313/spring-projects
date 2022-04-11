@@ -83,11 +83,16 @@ public class ClientesController {
 	 * @throws AppException
 	 */
 	@GetMapping(value = "/client/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Client detail(@PathVariable Integer id) throws AppException {
+	public @ResponseBody ApiResponse detail(@PathVariable Integer id) {
 
 		final var business = new ClientService(clientRespository);
 
-		return business.get(id);
+		try {
+			return ApiResponse.success(business.get(id));
+		} catch (final AppException error) {
+			return ApiResponse.error(error);
+		}
+
 	}
 
 	/**
