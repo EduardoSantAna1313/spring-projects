@@ -22,6 +22,4 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	 */
 	Client findClienteByNomeCli(final String pNomeCli);
 
-	<S extends Client> S save(Client client);
-
 }
