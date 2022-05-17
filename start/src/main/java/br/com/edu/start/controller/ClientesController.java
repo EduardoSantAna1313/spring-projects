@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.edu.start.AppException;
 import br.com.edu.start.model.Client;
+import br.com.edu.start.repository.AddressRepository;
 import br.com.edu.start.repository.ClientRepository;
 import br.com.edu.start.service.ClientDTO;
 import br.com.edu.start.service.ClientService;
@@ -30,6 +31,9 @@ public class ClientesController {
 
 	@Autowired
 	private final ClientRepository clientRespository;
+
+	@Autowired
+	private AddressRepository addressRepository;
 
 	/**
 	 * New instance to ClientesController.
@@ -51,7 +55,7 @@ public class ClientesController {
 	public @ResponseBody ApiResponse post(@RequestBody final ClientDTO client) {
 
 		try {
-			final var business = new ClientService(clientRespository);
+			final var business = new ClientService(clientRespository, addressRepository);
 
 			return ApiResponse.success(business.save(client));
 		} catch (final AppException error) {
@@ -68,7 +72,7 @@ public class ClientesController {
 	 */
 	@GetMapping(value = "/client", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Client> list() {
-		final var business = new ClientService(clientRespository);
+		final var business = new ClientService(clientRespository, addressRepository);
 
 		return business.list();
 	}
@@ -85,7 +89,7 @@ public class ClientesController {
 	@GetMapping(value = "/client/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ApiResponse detail(@PathVariable Integer id) {
 
-		final var business = new ClientService(clientRespository);
+		final var business = new ClientService(clientRespository, addressRepository);
 
 		try {
 			return ApiResponse.success(business.get(id));

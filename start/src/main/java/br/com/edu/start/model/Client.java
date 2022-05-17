@@ -15,7 +15,6 @@ import javax.persistence.Table;
  * Model to Client
  * 
  * @author Eduardo
- *
  */
 @Entity
 @Table(name = "Client")
@@ -90,7 +89,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param codCli the codCli to set
+	 * @param codCli
+	 *                   the codCli to set
 	 */
 	public void setCodCli(Integer codCli) {
 		this.codCli = codCli;
@@ -104,7 +104,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param nomeCli the nomeCli to set
+	 * @param nomeCli
+	 *                    the nomeCli to set
 	 */
 	public void setNomeCli(String nomeCli) {
 		this.nomeCli = nomeCli;
@@ -118,7 +119,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param dataNasc the dataNasc to set
+	 * @param dataNasc
+	 *                     the dataNasc to set
 	 */
 	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
@@ -132,7 +134,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param cidadeNasc the cidadeNasc to set
+	 * @param cidadeNasc
+	 *                       the cidadeNasc to set
 	 */
 	public void setCidadeNasc(String cidadeNasc) {
 		this.cidadeNasc = cidadeNasc;
@@ -146,7 +149,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param paiCli the paiCli to set
+	 * @param paiCli
+	 *                   the paiCli to set
 	 */
 	public void setPaiCli(String paiCli) {
 		this.paiCli = paiCli;
@@ -160,7 +164,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param maeCli the maeCli to set
+	 * @param maeCli
+	 *                   the maeCli to set
 	 */
 	public void setMaeCli(String maeCli) {
 		this.maeCli = maeCli;
@@ -174,7 +179,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param cpfCli the cpfCli to set
+	 * @param cpfCli
+	 *                   the cpfCli to set
 	 */
 	public void setCpfCli(String cpfCli) {
 		this.cpfCli = cpfCli;
@@ -188,7 +194,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param rgCli the rgCli to set
+	 * @param rgCli
+	 *                  the rgCli to set
 	 */
 	public void setRgCli(String rgCli) {
 		this.rgCli = rgCli;
@@ -202,7 +209,8 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * @param dataCad the dataCad to set
+	 * @param dataCad
+	 *                    the dataCad to set
 	 */
 	public void setDataCad(Timestamp dataCad) {
 		this.dataCad = dataCad;
