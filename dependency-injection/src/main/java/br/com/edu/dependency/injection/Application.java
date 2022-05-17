@@ -30,6 +30,11 @@ public class Application {
 		System.out.println("********* Profile Controller Injected *********");
 		I18nController i18nController = (I18nController)  ctx.getBean("i18nController");
 		System.out.println(i18nController.sayGreeting());
+
+
+		System.out.println("******** Pet Controller with multiple profiles *****");
+		PetController petController = (PetController) ctx.getBean("petController");
+		System.out.println(petController.whichIsTheBest());
 	}
 
 }
