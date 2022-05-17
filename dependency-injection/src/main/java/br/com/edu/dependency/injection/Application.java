@@ -1,9 +1,6 @@
 package br.com.edu.dependency.injection;
 
-import br.com.edu.dependency.injection.controllers.ConstructorController;
-import br.com.edu.dependency.injection.controllers.MyController;
-import br.com.edu.dependency.injection.controllers.PropertyInjectedController;
-import br.com.edu.dependency.injection.controllers.SetterController;
+import br.com.edu.dependency.injection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -29,6 +26,10 @@ public class Application {
 		System.out.println("********* Property Injected *********");
 		PropertyInjectedController propertyInjectedController  = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
+
+		System.out.println("********* Profile Controller Injected *********");
+		I18nController i18nController = (I18nController)  ctx.getBean("i18nController");
+		System.out.println(i18nController.sayGreeting());
 	}
 
 }
