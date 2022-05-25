@@ -1,4 +1,4 @@
-package br.com.pet.clinic.model;
+package br.com.edu.pet.clininc.data.model;
 
 public class Vet extends Person{
     public Vet(String firstName, String lastName) {

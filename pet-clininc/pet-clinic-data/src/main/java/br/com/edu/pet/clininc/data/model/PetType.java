@@ -1,4 +1,4 @@
-package br.com.pet.clinic.model;
+package br.com.edu.pet.clininc.data.model;
 
 import org.springframework.context.annotation.EnableMBeanExport;
 

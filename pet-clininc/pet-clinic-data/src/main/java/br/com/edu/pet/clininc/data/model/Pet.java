@@ -1,4 +1,4 @@
-package br.com.pet.clinic.model;
+package br.com.edu.pet.clininc.data.model;
 
 import java.time.LocalDate;
 public class Pet {
