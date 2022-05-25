@@ -1,5 +1,7 @@
 package br.com.edu.pet.clininc.data.model;
 
+import org.springframework.stereotype.Controller;
+
 public class Person {
 
     private String firstName;
