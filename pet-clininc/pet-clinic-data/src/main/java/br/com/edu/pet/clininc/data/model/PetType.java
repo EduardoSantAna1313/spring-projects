@@ -2,7 +2,7 @@ package br.com.edu.pet.clininc.data.model;
 
 import org.springframework.context.annotation.EnableMBeanExport;
 
-public class PetType {
+public class PetType extends BaseEntity{
 
     private String name;
 

@@ -1,7 +1,7 @@
 package br.com.edu.pet.clininc.data.model;
 
 import java.time.LocalDate;
-public class Pet {
+public class Pet extends BaseEntity{
 
     private PetType petType;
 
