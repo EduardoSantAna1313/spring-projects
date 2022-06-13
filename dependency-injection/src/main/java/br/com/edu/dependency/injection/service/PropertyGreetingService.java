@@ -1,12 +1,10 @@
 package br.com.edu.dependency.injection.service;
 
-import org.springframework.stereotype.Service;
+public class PropertyGreetingService implements GreetingService {
 
-@Service
-public class PropertyGreetingService implements GreetingService{
-    @Override
-    public String getGreeting() {
-        return "Hello World - Property";
-    }
+	@Override
+	public String getGreeting() {
+		return "Hello World - Property";
+	}
 
 }

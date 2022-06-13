@@ -1,11 +1,9 @@
 package br.com.edu.dependency.injection.service;
 
-import org.springframework.stereotype.Service;
+public class ConstructorGreetingService implements GreetingService {
 
-@Service
-public class ConstructorGreetingService implements GreetingService{
-    @Override
-    public String getGreeting() {
-        return "Hello World - Constructor";
-    }
+	@Override
+	public String getGreeting() {
+		return "Hello World - Constructor";
+	}
 }

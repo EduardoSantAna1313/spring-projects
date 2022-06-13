@@ -7,22 +7,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomBeanPostProcessor implements BeanPostProcessor {
 
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+	@Override
+	public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
 
-        if(bean instanceof LifecycleDemoBean){
-            ((LifecycleDemoBean) bean).beforeInit();
-        }
+		if (bean instanceof LifecycleDemoBean) {
+			((LifecycleDemoBean) bean).beforeInit();
+		}
 
-        return bean;
-    }
+		return bean;
+	}
 
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if(bean instanceof LifecycleDemoBean){
-            ((LifecycleDemoBean) bean).afterInit();
-        }
+	@Override
+	public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
+		if (bean instanceof LifecycleDemoBean) {
+			((LifecycleDemoBean) bean).afterInit();
+		}
 
-        return bean;
-    }
+		return bean;
+	}
 }
