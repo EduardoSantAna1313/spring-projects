@@ -14,10 +14,10 @@ import br.com.edu.dependency.injection.controllers.SetterController;
 
 @ComponentScan(basePackages = { "br.com.edu.dependency.injection" })
 @SpringBootApplication
-public class Application {
+public class ApplicationDependencyInjection {
 
 	public static void main(final String[] args) {
-		final ApplicationContext ctx = SpringApplication.run(Application.class, args);
+		final ApplicationContext ctx = SpringApplication.run(ApplicationDependencyInjection.class, args);
 
 		System.out.println("********* Primary *********");
 		final MyController myController = (MyController) ctx.getBean("myController");

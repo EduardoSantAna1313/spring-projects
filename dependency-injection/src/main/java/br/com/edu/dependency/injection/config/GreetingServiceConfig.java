@@ -5,6 +5,7 @@ package br.com.edu.dependency.injection.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
@@ -13,7 +14,6 @@ import com.springframework.pets.PetServiceFactory;
 
 import br.com.edu.dependency.injection.repositories.EnglishGreetingRepository;
 import br.com.edu.dependency.injection.repositories.impl.EnglishGreetingRepositoryImpl;
-import br.com.edu.dependency.injection.service.ConstructorGreetingService;
 import br.com.edu.dependency.injection.service.I18nEnglishGreetingService;
 import br.com.edu.dependency.injection.service.I18nPortugueseGreetingService;
 import br.com.edu.dependency.injection.service.PrimaryBeanGreetingService;
@@ -26,6 +26,7 @@ import br.com.edu.dependency.injection.service.SetterGreetingService;
  * @author eduardo
  *
  */
+@ImportResource("classpath:bean-configuration.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -63,10 +64,11 @@ public class GreetingServiceConfig {
 		return new I18nPortugueseGreetingService();
 	}
 
-	@Bean
-	ConstructorGreetingService constructorGreetingService() {
-		return new ConstructorGreetingService();
-	}
+	// Definido no xml
+//	@Bean
+//	ConstructorGreetingService constructorGreetingService() {
+//		return new ConstructorGreetingService();
+//	}
 
 	@Bean
 	PropertyGreetingService propertyGreetingService() {
