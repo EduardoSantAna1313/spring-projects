@@ -1,4 +1,4 @@
-package br.com.edu.dependency.injection.service;
+package com.springframework.pets;
 
 public interface PetService {
 
