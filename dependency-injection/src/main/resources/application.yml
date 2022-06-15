@@ -3,7 +3,7 @@ spring:
       active:
          - cat
          - EN
-         - qa
+         - prod
 di:
    username: ymlsuperuser
    password: ymldbpassword

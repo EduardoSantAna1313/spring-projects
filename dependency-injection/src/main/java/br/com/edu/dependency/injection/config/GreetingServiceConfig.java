@@ -3,7 +3,7 @@
  */
 package br.com.edu.dependency.injection.config;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -28,13 +28,14 @@ import br.com.edu.dependency.injection.service.SetterGreetingService;
  * @author eduardo
  *
  */
+@EnableConfigurationProperties(DiConstructorConfig.class)
 @ImportResource("classpath:bean-configuration.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${di.username}") final String username,
-            @Value("${di.password}") final String password, @Value("${di.jdbcurl}") final String jdbcUrl) {
+    FakeDataSource fakeDataSource(final DiConstructorConfig configuration) {
+
         // Variavel de ambiente com o nom DI_USERNAME tbm pode ser lida. Terá prioridade
         // maior do que o arquivo de properties !
 
@@ -45,9 +46,9 @@ public class GreetingServiceConfig {
         // arquivo ou anotar a classe com o @PropertySource
 
         final FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcUrl(jdbcUrl);
+        fakeDataSource.setUsername(configuration.getUsername());
+        fakeDataSource.setPassword(configuration.getPassword());
+        fakeDataSource.setJdbcUrl(configuration.getJdbcUrl());
         return fakeDataSource;
     }
 

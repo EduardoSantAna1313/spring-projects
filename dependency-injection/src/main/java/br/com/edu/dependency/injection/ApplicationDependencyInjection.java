@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
+import br.com.edu.dependency.injection.config.DiConfiguration;
+import br.com.edu.dependency.injection.config.DiConstructorConfig;
 import br.com.edu.dependency.injection.controllers.ConstructorController;
 import br.com.edu.dependency.injection.controllers.I18nController;
 import br.com.edu.dependency.injection.controllers.MyController;
@@ -66,12 +68,20 @@ public class ApplicationDependencyInjection {
         System.out.println(prototype2);
 
         System.out.println("**************************");
-        System.out.println("Loading properties");
+        System.out.println("Loading fake properties");
 
         final FakeDataSource fds = ctx.getBean(FakeDataSource.class);
-
         System.out.println(fds);
 
+        System.out.println("**************************");
+        System.out.println("Configuration bean");
+        final var config = ctx.getBean(DiConfiguration.class);
+        System.out.println(config);
+
+        System.out.println("**************************");
+        System.out.println("Constructor configuration bean");
+        final var constructorBean = ctx.getBean(DiConstructorConfig.class);
+        System.out.println(constructorBean);
     }
 
 }
