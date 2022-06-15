@@ -1,7 +1,18 @@
 spring:
    profiles:
-      active: cat,EN,qa
+      active:
+         - cat
+         - EN
+         - qa
 di:
    username: ymlsuperuser
    password: ymldbpassword
    jdbcurl: ymljdbcurltest
+
+---
+spring:
+   profiles: prod   
+di:
+   username: prodsuperuser
+   password: proddbpassword
+   jdbcurl: proddbcurltest
