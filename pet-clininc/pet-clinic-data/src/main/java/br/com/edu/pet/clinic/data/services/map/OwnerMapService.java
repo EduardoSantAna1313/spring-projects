@@ -1,16 +1,21 @@
-package br.com.edu.pet.clininc.data.services.map;
+package br.com.edu.pet.clinic.data.services.map;
 
 import java.util.Set;
 
-import br.com.edu.pet.clininc.data.model.Owner;
-import br.com.edu.pet.clininc.data.services.OwnerService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
+import br.com.edu.pet.clinic.data.model.Owner;
+import br.com.edu.pet.clinic.data.services.OwnerService;
 
 /**
  * @author eduardo
  * @since 2022-06-15
  *
  */
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+@Service
+@Profile({ "default", "map" })
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {

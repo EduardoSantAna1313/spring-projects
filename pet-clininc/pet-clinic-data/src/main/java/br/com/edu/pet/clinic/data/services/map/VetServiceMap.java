@@ -1,15 +1,18 @@
-package br.com.edu.pet.clininc.data.services.map;
+package br.com.edu.pet.clinic.data.services.map;
 
 import java.util.Set;
 
-import br.com.edu.pet.clininc.data.model.Vet;
-import br.com.edu.pet.clininc.data.services.VetService;
+import org.springframework.stereotype.Service;
+
+import br.com.edu.pet.clinic.data.model.Vet;
+import br.com.edu.pet.clinic.data.services.VetService;
 
 /**
  * @author eduardo
  * @since 2022-06-15
  *
  */
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override

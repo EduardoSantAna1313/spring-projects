@@ -1,4 +1,4 @@
-package br.com.edu.pet.clininc.data.services.map;
+package br.com.edu.pet.clinic.data.services.map;
 
 import java.util.HashMap;
 import java.util.HashSet;

@@ -1,17 +1,15 @@
 /**
  *
  */
-package br.com.pet.clinic.bootstrap;
+package br.com.edu.pet.clinic.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import br.com.edu.pet.clininc.data.model.Owner;
-import br.com.edu.pet.clininc.data.model.Vet;
-import br.com.edu.pet.clininc.data.services.OwnerService;
-import br.com.edu.pet.clininc.data.services.VetService;
-import br.com.edu.pet.clininc.data.services.map.OwnerServiceMap;
-import br.com.edu.pet.clininc.data.services.map.VetServiceMap;
+import br.com.edu.pet.clinic.data.model.Owner;
+import br.com.edu.pet.clinic.data.model.Vet;
+import br.com.edu.pet.clinic.data.services.OwnerService;
+import br.com.edu.pet.clinic.data.services.VetService;
 
 /**
  * Data Loader.
@@ -24,16 +22,19 @@ import br.com.edu.pet.clininc.data.services.map.VetServiceMap;
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
+
     private final VetService vetService;
-//	private final PetService petService;
 
     /**
      * Create a new instance of DataLoader
      *
+     * @param ownerService
+     * @param vetService
      */
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(final OwnerService ownerService, final VetService vetService) {
+        super();
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

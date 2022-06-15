@@ -1,4 +1,4 @@
-package br.com.edu.pet.clininc.data.services;
+package br.com.edu.pet.clinic.data.services;
 
 import java.util.Set;
 

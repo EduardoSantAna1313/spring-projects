@@ -1,4 +1,4 @@
-package br.com.edu.pet.clininc.data.model;
+package br.com.edu.pet.clinic.data.model;
 
 /**
  * @author eduardo
