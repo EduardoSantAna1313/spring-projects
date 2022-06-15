@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
 
 import com.springframework.pets.PetService;
 import com.springframework.pets.PetServiceFactory;
@@ -29,7 +28,6 @@ import br.com.edu.dependency.injection.service.SetterGreetingService;
  * @author eduardo
  *
  */
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:bean-configuration.xml")
 @Configuration
 public class GreetingServiceConfig {
