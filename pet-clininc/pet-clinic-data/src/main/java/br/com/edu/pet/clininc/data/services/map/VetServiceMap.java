@@ -1,11 +1,16 @@
 package br.com.edu.pet.clininc.data.services.map;
 
-import br.com.edu.pet.clininc.data.model.Vet;
-import br.com.edu.pet.clininc.data.services.CrudService;
-
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+import br.com.edu.pet.clininc.data.model.Vet;
+import br.com.edu.pet.clininc.data.services.VetService;
+
+/**
+ * @author eduardo
+ * @since 2022-06-15
+ *
+ */
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
@@ -13,22 +18,22 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
     }
 
     @Override
-    public Vet findById(Long id) {
+    public Vet findById(final Long id) {
         return super.findById(id);
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(final Long id) {
         super.deleteById(id);
     }
 
     @Override
-    public void delete(Vet object) {
+    public void delete(final Vet object) {
         super.delete(object);
     }
 
     @Override
-    public Vet save(Vet object) {
+    public Vet save(final Vet object) {
         return super.save(object.getId(), object);
     }
 

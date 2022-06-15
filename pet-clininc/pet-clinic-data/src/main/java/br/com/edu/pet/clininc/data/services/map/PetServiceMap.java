@@ -1,11 +1,16 @@
 package br.com.edu.pet.clininc.data.services.map;
 
-import br.com.edu.pet.clininc.data.model.Pet;
-import br.com.edu.pet.clininc.data.services.CrudService;
-
 import java.util.Set;
 
-public class PetServiceMap  extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+import br.com.edu.pet.clininc.data.model.Pet;
+import br.com.edu.pet.clininc.data.services.PetService;
+
+/**
+ * @author eduardo
+ * @since 2022-06-15
+ *
+ */
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
@@ -13,22 +18,22 @@ public class PetServiceMap  extends AbstractMapService<Pet, Long> implements Cru
     }
 
     @Override
-    public Pet findById(Long id) {
+    public Pet findById(final Long id) {
         return super.findById(id);
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(final Long id) {
         super.deleteById(id);
     }
 
     @Override
-    public void delete(Pet object) {
+    public void delete(final Pet object) {
         super.delete(object);
     }
 
     @Override
-    public Pet save(Pet object) {
+    public Pet save(final Pet object) {
         return super.save(object.getId(), object);
     }
 
