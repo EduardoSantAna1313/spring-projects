@@ -40,14 +40,12 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(final String... args) throws Exception {
         final var owner1 = new Owner();
-        owner1.setId(1L);
         owner1.setFirstName("Bart");
         owner1.setLastName("Simpson");
 
         ownerService.save(owner1);
 
         final var owner2 = new Owner();
-        owner2.setId(2L);
         owner2.setFirstName("Lisa");
         owner2.setLastName("Simpson");
 
@@ -56,13 +54,11 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Loaded owners!");
 
         final var vet1 = new Vet();
-        vet1.setId(1L);
         vet1.setFirstName("Marge");
         vet1.setLastName("Simpson");
         vetService.save(vet1);
 
         final var vet2 = new Vet();
-        vet2.setId(2L);
         vet2.setFirstName("Homer");
         vet2.setLastName("Simpson");
         vetService.save(vet2);
