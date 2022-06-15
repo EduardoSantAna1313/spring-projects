@@ -66,7 +66,7 @@ public class ApplicationDependencyInjection {
         System.out.println(prototype2);
 
         System.out.println("**************************");
-        System.out.println("Loafing properties");
+        System.out.println("Loading properties");
 
         final FakeDataSource fds = ctx.getBean(FakeDataSource.class);
 
