@@ -16,27 +16,27 @@ import lombok.Setter;
 @Setter
 public class Response {
 
-	private String message;
+    private String message;
 
-	private Object data;
+    private Object data;
 
-	private Integer code;
+    private Integer code;
 
-	public Response(String message, Integer code) {
-		super();
-		this.message = message;
-		this.code = code;
-	}
+    public Response(final String message, final Integer code) {
+        super();
+        this.message = message;
+        this.code = code;
+    }
 
-	public Response(final AppException error) {
-		this.message = error.getMessage();
-		this.code = HttpStatus.INTERNAL_SERVER_ERROR.value();
-	}
+    public Response(final AppException error) {
+        this.message = error.getMessage();
+        this.code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+    }
 
-	@Override
-	public String toString() {
-		final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(this);
-	}
+    @Override
+    public String toString() {
+        final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.edu.start.controller;
 
@@ -19,22 +19,22 @@ import lombok.Setter;
 @Setter
 public class ApiResponse extends ResponseEntity<String> {
 
-	private String message;
+    private String message;
 
-	public ApiResponse(String body, HttpStatus status) {
-		super(body, status);
-	}
+    public ApiResponse(final String body, final HttpStatus status) {
+        super(body, status);
+    }
 
-	public static ApiResponse success(Object data) {
-		final Response response = new Response(SUCCESSFULLY_SAVED, HttpStatus.OK.value());
-		response.setData(data);
-		return new ApiResponse(response.toString(), HttpStatus.OK);
-	}
+    public static ApiResponse success(final Object data) {
+        final Response response = new Response(SUCCESSFULLY_SAVED, HttpStatus.OK.value());
+        response.setData(data);
+        return new ApiResponse(response.toString(), HttpStatus.OK);
+    }
 
-	public static ApiResponse error(AppException error) {
-		final Response response = new Response(error);
+    public static ApiResponse error(final AppException error) {
+        final Response response = new Response(error);
 
-		return new ApiResponse(response.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+        return new ApiResponse(response.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
 }

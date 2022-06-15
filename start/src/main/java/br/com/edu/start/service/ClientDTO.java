@@ -16,59 +16,57 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString(of = {
-	"nomeCli", "dateNasc", "cidadeNasc"
-})
+@ToString(of = { "nomeCli", "dateNasc", "cidadeNasc" })
 public class ClientDTO implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2052164217044248040L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -2052164217044248040L;
 
-	/**
-	 * Integer - codCli.
-	 */
-	private Integer codCli;
+    /**
+     * Integer - codCli.
+     */
+    private Integer codCli;
 
-	/**
-	 * String - nomeCli.
-	 */
-	private String nomeCli;
+    /**
+     * String - nomeCli.
+     */
+    private String nomeCli;
 
-	/**
-	 * Date - dateNasc.
-	 */
-	private Date dateNasc;
+    /**
+     * Date - dateNasc.
+     */
+    private Date dateNasc;
 
-	/**
-	 * String - cidadeNasc.
-	 */
-	private String cidadeNasc;
+    /**
+     * String - cidadeNasc.
+     */
+    private String cidadeNasc;
 
-	/**
-	 * String - paiCli.
-	 */
-	private String paiCli;
+    /**
+     * String - paiCli.
+     */
+    private String paiCli;
 
-	/**
-	 * String - maeCli.
-	 */
-	private String maeCli;
+    /**
+     * String - maeCli.
+     */
+    private String maeCli;
 
-	/**
-	 * String - cpfCli.
-	 */
-	private String cpfCli;
+    /**
+     * String - cpfCli.
+     */
+    private String cpfCli;
 
-	/**
-	 * String - rgCli.
-	 */
-	private String rgCli;
+    /**
+     * String - rgCli.
+     */
+    private String rgCli;
 
-	/**
-	 * Date - dataCad.
-	 */
-	private Date dataCad;
+    /**
+     * Date - dataCad.
+     */
+    private Date dataCad;
 
 }

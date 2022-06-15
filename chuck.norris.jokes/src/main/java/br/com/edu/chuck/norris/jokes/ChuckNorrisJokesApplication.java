@@ -4,13 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author Eduardo
+ * @author eduardo
+ * @since 2022-06-15
+ *
  */
 @SpringBootApplication
 public class ChuckNorrisJokesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ChuckNorrisJokesApplication.class, args);
-	}
+    public static void main(final String[] args) {
+        SpringApplication.run(ChuckNorrisJokesApplication.class, args);
+    }
 
 }

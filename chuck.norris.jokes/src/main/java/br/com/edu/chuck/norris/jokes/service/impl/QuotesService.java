@@ -11,48 +11,46 @@ import br.com.edu.chuck.norris.jokes.service.JokeService;
 
 /**
  * Chuck Norris Quotes Service.
- * 
+ *
  * @author Eduardo
  */
 @Service
 public class QuotesService implements JokeService {
 
-	private Random rand;
+    private final Random rand;
 
-	private List<String> jokes;
+    private List<String> jokes;
 
-	public QuotesService() {
-		rand = new Random();
-	}
+    public QuotesService() {
+        rand = new Random();
+    }
 
-	@Override
-	public String getJoke() {
+    @Override
+    public String getJoke() {
 
-		var listJokes = getJokes();
+        final var listJokes = getJokes();
 
-		return listJokes.get(rand.nextInt(listJokes.size()));
-	}
+        return listJokes.get(rand.nextInt(listJokes.size()));
+    }
 
-	public List<String> getJokes() {
+    public List<String> getJokes() {
 
-		if (jokes == null) {
-			jokes = loadJokes();
-		}
+        if (jokes == null) {
+            jokes = loadJokes();
+        }
 
-		return jokes;
-	}
+        return jokes;
+    }
 
-	private List<String> loadJokes() {
+    private List<String> loadJokes() {
+        try (final var is = this.getClass().getResource("jokes.txt").openStream()) {
 
-		try (final var is = this.getClass().getResource("jokes.txt").openStream()) {
+            final String text = new String(is.readAllBytes());
 
-			final String text = new String(is.readAllBytes());
-
-			return Arrays.asList(text.split(System.lineSeparator()));
-		} catch (final IOException error) {
-			return List.of();
-		}
-
-	}
+            return Arrays.asList(text.split(System.lineSeparator()));
+        } catch (final IOException error) {
+            return List.of();
+        }
+    }
 
 }

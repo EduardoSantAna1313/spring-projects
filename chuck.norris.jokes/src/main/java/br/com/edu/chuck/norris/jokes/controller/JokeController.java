@@ -7,26 +7,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import br.com.edu.chuck.norris.jokes.service.JokeService;
 
 /**
- * @author Eduardo
+ * @author eduardo
+ * @since 2022-06-15
+ *
  */
 @Controller
 public class JokeController {
 
-	private JokeService service;
+    private final JokeService service;
 
-	public JokeController(JokeService service) {
-		super();
-		this.service = service;
-	}
+    public JokeController(final JokeService service) {
+        super();
+        this.service = service;
+    }
 
-	@GetMapping
-	public String joke(final Model model) {
+    @GetMapping
+    public String joke(final Model model) {
 
-		final var joke = service.getJoke();
+        final var joke = service.getJoke();
 
-		model.addAttribute("joke", joke);
+        model.addAttribute("joke", joke);
 
-		return "index";
-	}
+        return "index";
+    }
 
 }
