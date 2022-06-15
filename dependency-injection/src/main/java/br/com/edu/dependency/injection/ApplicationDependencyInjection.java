@@ -11,6 +11,8 @@ import br.com.edu.dependency.injection.controllers.MyController;
 import br.com.edu.dependency.injection.controllers.PetController;
 import br.com.edu.dependency.injection.controllers.PropertyInjectedController;
 import br.com.edu.dependency.injection.controllers.SetterController;
+import br.com.edu.dependency.injection.service.PrototypeBean;
+import br.com.edu.dependency.injection.service.SingletonBean;
 
 @ComponentScan(basePackages = { "br.com.edu.dependency.injection" })
 @SpringBootApplication
@@ -44,6 +46,24 @@ public class ApplicationDependencyInjection {
 		System.out.println("******** Pet Controller with multiple profiles *****");
 		final PetController petController = (PetController) ctx.getBean("petController");
 		System.out.println(petController.whichIsTheBest());
+
+		System.out.println("******** Testing singleton scope ********");
+		final var singleton1 = ctx.getBean(SingletonBean.class);
+		final var singleton2 = ctx.getBean(SingletonBean.class);
+
+		// same hashcode
+		System.out.println(singleton1);
+		System.out.println(singleton2);
+
+		System.out.println("******** Testing prototype scope ********");
+
+		final var prototype1 = ctx.getBean(PrototypeBean.class);
+		final var prototype2 = ctx.getBean(PrototypeBean.class);
+
+		// different hashcode
+		System.out.println(prototype1);
+		System.out.println(prototype2);
+
 	}
 
 }
