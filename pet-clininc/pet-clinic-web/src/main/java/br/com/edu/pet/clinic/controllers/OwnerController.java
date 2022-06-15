@@ -1,7 +1,10 @@
 package br.com.edu.pet.clinic.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.edu.pet.clinic.data.services.OwnerService;
 
 /**
  * @author eduardo
@@ -12,8 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/owners")
 public class OwnerController {
 
+    private final OwnerService ownerService;
+
+    /**
+     * Create a new instance of OwnerController
+     *
+     * @param ownerService
+     */
+    public OwnerController(final OwnerService ownerService) {
+        super();
+        this.ownerService = ownerService;
+    }
+
     @RequestMapping({ "", "/", "/index", "/index.html" })
-    public String listOwners() {
+    public String listOwners(final Model model) {
+
+        model.addAttribute("owners", ownerService.findAll());
+
         return "owners/index";
     }
 
