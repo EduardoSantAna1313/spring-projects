@@ -14,11 +14,31 @@ public class Pet extends BaseEntity {
      */
     private static final long serialVersionUID = 1L;
 
+    private String name;
+
     private PetType petType;
 
     private Owner owner;
 
     private LocalDate birthDate;
+
+    /**
+     * Retrieve the value of name.
+     *
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set a new value to name.
+     *
+     * @param name the name to set
+     */
+    public void setName(final String name) {
+        this.name = name;
+    }
 
     /**
      * Retrieve the value of petType.
