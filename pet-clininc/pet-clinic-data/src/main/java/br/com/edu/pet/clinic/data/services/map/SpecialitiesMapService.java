@@ -9,7 +9,7 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import br.com.edu.pet.clinic.data.model.Speciality;
-import br.com.edu.pet.clinic.data.services.SpecialitiesService;
+import br.com.edu.pet.clinic.data.services.SpecialityService;
 
 /**
  * @author eduardo
@@ -17,7 +17,7 @@ import br.com.edu.pet.clinic.data.services.SpecialitiesService;
  *
  */
 @Service
-public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
+public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
 
     @Override
     public Set<Speciality> findAll() {
