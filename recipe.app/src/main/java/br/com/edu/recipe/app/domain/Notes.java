@@ -14,6 +14,13 @@ public class Notes {
     @Lob
     private String note;
 
+    public Notes() {
+    }
+
+    public Notes(String note) {
+        this.note = note;
+    }
+
     public Long getId() {
         return id;
     }
@@ -28,5 +35,13 @@ public class Notes {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 }

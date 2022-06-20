@@ -4,7 +4,12 @@
  */
 package br.com.edu.recipe.app.controllers;
 
+import br.com.edu.recipe.app.repositories.CategoryRepository;
+import br.com.edu.recipe.app.repositories.UnitOfMeasureRepository;
+import br.com.edu.recipe.app.services.RecipeService;
+import br.com.edu.recipe.app.services.impl.RecipeServiceImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,8 +20,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    private RecipeService recipeService;
+
+    private CategoryRepository categoryRepository;
+
+    private UnitOfMeasureRepository unitOfMeasureRepository;
+
+    public IndexController(RecipeServiceImpl recipeService, CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
+        this.recipeService = recipeService;
+        this.categoryRepository = categoryRepository;
+        this.unitOfMeasureRepository = unitOfMeasureRepository;
+    }
+
     @RequestMapping({ "/", "/index", "/index.html" })
-    public String index() {
+    public String index(Model model) {
+
+        var category = categoryRepository.findByDescription("Mexican");
+
+        var unit = unitOfMeasureRepository.findByDescription("Ounce");
+
+        var recipes = recipeService.listAll();
+
+        model.addAttribute("recipes", recipes);
+
         return "index";
     }
 
