@@ -4,17 +4,15 @@
  */
 package br.com.edu.pet.clinic.data.services.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Service;
-
 import br.com.edu.pet.clinic.data.model.Visit;
 import br.com.edu.pet.clinic.data.services.VisitService;
+import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 /**
  * @author eduardo
  * @since 2022-06-17
- *
  */
 @Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {

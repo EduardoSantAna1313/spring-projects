@@ -9,7 +9,6 @@ import br.com.edu.pet.clinic.data.model.PetType;
 /**
  * @author eduardo
  * @since 2022-06-17
- *
  */
 public interface PetTypeService extends CrudService<PetType, Long> {
 

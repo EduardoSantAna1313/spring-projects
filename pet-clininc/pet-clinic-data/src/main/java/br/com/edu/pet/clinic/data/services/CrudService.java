@@ -2,7 +2,7 @@ package br.com.edu.pet.clinic.data.services;
 
 import java.util.Set;
 
-public interface CrudService<T,ID> {
+public interface CrudService<T, ID> {
 
     Set<T> findAll();
 

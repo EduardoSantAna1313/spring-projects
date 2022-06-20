@@ -6,11 +6,18 @@ package br.com.edu.pet.clinic.data.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * @author eduardo
  * @since 2022-06-17
- *
  */
+@Entity
+@Table(name = "visits")
 public class Visit extends BaseEntity {
 
     /**
@@ -18,10 +25,14 @@ public class Visit extends BaseEntity {
      */
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     /**

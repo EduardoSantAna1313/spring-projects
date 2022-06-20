@@ -9,7 +9,6 @@ import br.com.edu.pet.clinic.data.model.Speciality;
 /**
  * @author eduardo
  * @since 2022-06-17
- *
  */
 public interface SpecialityService extends CrudService<Speciality, Long> {
 

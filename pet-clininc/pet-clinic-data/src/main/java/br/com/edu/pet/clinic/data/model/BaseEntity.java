@@ -1,37 +1,25 @@
 package br.com.edu.pet.clinic.data.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-/**
- * @author eduardo
- * @since 2022-06-15
- *
- */
+@MappedSuperclass
 public class BaseEntity implements Serializable {
 
-    /**
-     * long - serialVersionUID.
-     */
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * Retrieve the value of id.
-     *
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     * Set a new value to id.
-     *
-     * @param id the id to set
-     */
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-
 }

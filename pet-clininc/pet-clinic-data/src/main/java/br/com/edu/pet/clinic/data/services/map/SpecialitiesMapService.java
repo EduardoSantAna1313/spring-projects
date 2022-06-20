@@ -4,17 +4,15 @@
  */
 package br.com.edu.pet.clinic.data.services.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Service;
-
 import br.com.edu.pet.clinic.data.model.Speciality;
 import br.com.edu.pet.clinic.data.services.SpecialityService;
+import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 /**
  * @author eduardo
  * @since 2022-06-17
- *
  */
 @Service
 public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {

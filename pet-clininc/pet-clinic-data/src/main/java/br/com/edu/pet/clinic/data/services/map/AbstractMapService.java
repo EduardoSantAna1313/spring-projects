@@ -1,18 +1,17 @@
 package br.com.edu.pet.clinic.data.services.map;
 
+import br.com.edu.pet.clinic.data.model.BaseEntity;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import br.com.edu.pet.clinic.data.model.BaseEntity;
-
 /**
- * @author eduardo
- * @since 2022-06-15
- *
  * @param <T>
  * @param <ID>
+ * @author eduardo
+ * @since 2022-06-15
  */
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 

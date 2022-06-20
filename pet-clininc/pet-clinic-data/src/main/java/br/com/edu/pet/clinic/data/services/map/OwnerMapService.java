@@ -1,18 +1,16 @@
 package br.com.edu.pet.clinic.data.services.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Service;
-
 import br.com.edu.pet.clinic.data.model.Owner;
 import br.com.edu.pet.clinic.data.services.OwnerService;
 import br.com.edu.pet.clinic.data.services.PetService;
 import br.com.edu.pet.clinic.data.services.PetTypeService;
+import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 /**
  * @author eduardo
  * @since 2022-06-15
- *
  */
 @Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {

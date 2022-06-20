@@ -3,11 +3,19 @@ package br.com.edu.pet.clinic.data.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 /**
  * @author eduardo
  * @since 2022-06-15
- *
  */
+@Entity
+@Table(name = "vets")
 public class Vet extends Person {
 
     /**
@@ -15,11 +23,12 @@ public class Vet extends Person {
      */
     private static final long serialVersionUID = 1L;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "vet_specialities", joinColumns = @JoinColumn(name = "vet_id"), inverseJoinColumns = @JoinColumn(name = "speciality_id"))
     private Set<Speciality> specialities = new HashSet<>();
 
     /**
      * Create a new instance of Vet
-     *
      */
     public Vet() {
         super();

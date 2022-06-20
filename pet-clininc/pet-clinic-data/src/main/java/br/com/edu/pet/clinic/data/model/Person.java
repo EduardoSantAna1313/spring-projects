@@ -1,10 +1,13 @@
 package br.com.edu.pet.clinic.data.model;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
 /**
  * @author eduardo
  * @since 2022-06-15
- *
  */
+@MappedSuperclass
 public class Person extends BaseEntity {
 
     /**
@@ -12,13 +15,14 @@ public class Person extends BaseEntity {
      */
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
     /**
      * Create a new instance of Person
-     *
      */
     public Person() {
         super();
