@@ -8,6 +8,7 @@ import br.com.edu.recipe.app.repositories.CategoryRepository;
 import br.com.edu.recipe.app.repositories.UnitOfMeasureRepository;
 import br.com.edu.recipe.app.services.RecipeService;
 import br.com.edu.recipe.app.services.impl.RecipeServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 2022-06-17
  *
  */
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -34,6 +36,8 @@ public class IndexController {
 
     @RequestMapping({ "/", "/index", "/index.html" })
     public String index(Model model) {
+
+        log.debug("Getting index page....");
 
         var category = categoryRepository.findByDescription("Mexican");
 

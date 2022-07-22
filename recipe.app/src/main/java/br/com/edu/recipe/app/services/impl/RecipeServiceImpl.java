@@ -5,11 +5,13 @@ import br.com.edu.recipe.app.repositories.IngredientRepository;
 import br.com.edu.recipe.app.repositories.NotesRepository;
 import br.com.edu.recipe.app.repositories.RecipeRepository;
 import br.com.edu.recipe.app.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Slf4j
 public class RecipeServiceImpl implements RecipeService {
 
     private RecipeRepository recipeRepository;
@@ -18,7 +20,6 @@ public class RecipeServiceImpl implements RecipeService {
 
     private NotesRepository notesRepository;
 
-
     public RecipeServiceImpl(RecipeRepository recipeRepository, IngredientRepository ingredientRepository, NotesRepository notesRepository) {
         this.recipeRepository = recipeRepository;
         this.ingredientRepository = ingredientRepository;
@@ -26,6 +27,8 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     public Recipe save(final Recipe recipe) {
+
+        log.debug("Saving the recipe {0}", recipe);
 
         recipeRepository.save(recipe);
         if (recipe.getIngredients() != null) {

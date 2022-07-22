@@ -6,6 +6,7 @@ package br.com.edu.pet.clinic.data.services.map;
 
 import br.com.edu.pet.clinic.data.model.Visit;
 import br.com.edu.pet.clinic.data.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -15,6 +16,7 @@ import java.util.Set;
  * @since 2022-06-17
  */
 @Service
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

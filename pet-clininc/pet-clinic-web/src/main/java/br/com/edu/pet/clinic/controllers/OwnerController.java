@@ -12,7 +12,7 @@ import br.com.edu.pet.clinic.data.services.OwnerService;
  *
  */
 @Controller
-@RequestMapping("/owners")
+@RequestMapping
 public class OwnerController {
 
     private final OwnerService ownerService;
@@ -27,7 +27,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-    @RequestMapping({ "", "/", "/index", "/index.html" })
+    @RequestMapping({ "/owners","/owners.html", "/owners", "/owners/index", "/owners/index.html" })
     public String listOwners(final Model model) {
 
         model.addAttribute("owners", ownerService.findAll());

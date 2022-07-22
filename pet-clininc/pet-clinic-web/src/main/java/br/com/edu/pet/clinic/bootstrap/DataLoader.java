@@ -5,6 +5,7 @@ package br.com.edu.pet.clinic.bootstrap;
 
 import java.time.LocalDate;
 
+import br.com.edu.pet.clinic.data.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +15,6 @@ import br.com.edu.pet.clinic.data.model.PetType;
 import br.com.edu.pet.clinic.data.model.Speciality;
 import br.com.edu.pet.clinic.data.model.Vet;
 import br.com.edu.pet.clinic.data.model.Visit;
-import br.com.edu.pet.clinic.data.services.OwnerService;
-import br.com.edu.pet.clinic.data.services.PetTypeService;
-import br.com.edu.pet.clinic.data.services.SpecialityService;
-import br.com.edu.pet.clinic.data.services.VetService;
-import br.com.edu.pet.clinic.data.services.VisitService;
 
 /**
  * Data Loader.
@@ -34,25 +30,17 @@ public class DataLoader implements CommandLineRunner {
 
     private final VetService vetService;
 
+    private final PetService petService;
+
     private final PetTypeService petTypeService;
 
     private final SpecialityService specialtyService;
     private final VisitService visitService;
 
-    /**
-     * Create a new instance of DataLoader
-     *
-     * @param ownerService
-     * @param vetService
-     * @param petTypeService
-     * @param specialtyService
-     * @param visitService
-     */
-    public DataLoader(final OwnerService ownerService, final VetService vetService, final PetTypeService petTypeService,
-            final SpecialityService specialtyService, final VisitService visitService) {
-        super();
+    public DataLoader(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialityService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petService = petService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
         this.visitService = visitService;
@@ -109,6 +97,8 @@ public class DataLoader implements CommandLineRunner {
         bartsPet.setName("Santas little helper");
         owner1.getPets().add(bartsPet);
 
+        petService.save(bartsPet);
+
         final var owner2 = new Owner();
         owner2.setFirstName("Lisa");
         owner2.setLastName("Simpson");
@@ -124,6 +114,8 @@ public class DataLoader implements CommandLineRunner {
         lisasCat.setBirthDate(LocalDate.now());
         lisasCat.setPetType(savedCatPetType);
         owner2.getPets().add(lisasCat);
+
+        petService.save(lisasCat);
 
         System.out.println("Loaded owners!");
 

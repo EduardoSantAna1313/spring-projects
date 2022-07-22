@@ -4,13 +4,16 @@ import br.com.edu.recipe.app.domain.*;
 import br.com.edu.recipe.app.repositories.UnitOfMeasureRepository;
 import br.com.edu.recipe.app.services.CategoryService;
 import br.com.edu.recipe.app.services.impl.RecipeServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Set;
 
+@Slf4j
 @Component
 public class RecipeLoaderData implements CommandLineRunner {
 
@@ -24,9 +27,12 @@ public class RecipeLoaderData implements CommandLineRunner {
         this.recipeService = recipeService;
         this.categoryService = categoryService;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
+
+        log.debug("Loading bootstrap data....");
     }
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         grilledChickenTacos();
         perfectGuacamole();
