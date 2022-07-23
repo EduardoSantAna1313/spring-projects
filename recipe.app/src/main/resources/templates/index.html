@@ -20,12 +20,6 @@
 
     <title>Recipe APP</title>
 
-    <script>
-            /* window.location.href = '/recipes?id='; */
-        function onclickRecipe(e) {
-            console.log(e);
-        }
-    </script>
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 20px">
@@ -52,7 +46,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="recipe : ${recipes}" onclick="onclickRecipe(this)">
+                            <tr th:each="recipe : ${recipes}">
                                 <td th:text="${recipe.id}">1</td>
                                 <td th:text="${recipe.description}">Recipe</td>
                                 <td th:text="${recipe.prepTime}" style="text-align: right;">20</td>
