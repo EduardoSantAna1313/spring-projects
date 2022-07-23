@@ -32,12 +32,6 @@ public class IndexController {
         this.recipeService = recipeService;
     }
 
-    public IndexController(RecipeServiceImpl recipeService, CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
-        this.recipeService = recipeService;
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
-    }
-
     @RequestMapping({ "/", "/index", "/index.html" })
     public String index(Model model) {
 
