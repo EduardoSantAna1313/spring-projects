@@ -28,6 +28,10 @@ public class IndexController {
 
     private UnitOfMeasureRepository unitOfMeasureRepository;
 
+    public IndexController(RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
+
     public IndexController(RecipeServiceImpl recipeService, CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.recipeService = recipeService;
         this.categoryRepository = categoryRepository;
@@ -39,9 +43,9 @@ public class IndexController {
 
         log.debug("Getting index page....");
 
-        var category = categoryRepository.findByDescription("Mexican");
+        //var category = categoryRepository.findByDescription("Mexican");
 
-        var unit = unitOfMeasureRepository.findByDescription("Ounce");
+        //var unit = unitOfMeasureRepository.findByDescription("Ounce");
 
         var recipes = recipeService.listAll();
 

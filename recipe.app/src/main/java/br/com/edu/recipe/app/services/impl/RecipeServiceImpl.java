@@ -20,6 +20,10 @@ public class RecipeServiceImpl implements RecipeService {
 
     private NotesRepository notesRepository;
 
+    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
+    }
+
     public RecipeServiceImpl(RecipeRepository recipeRepository, IngredientRepository ingredientRepository, NotesRepository notesRepository) {
         this.recipeRepository = recipeRepository;
         this.ingredientRepository = ingredientRepository;
