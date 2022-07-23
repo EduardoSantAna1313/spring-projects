@@ -56,6 +56,7 @@ public class RecipeLoaderData implements CommandLineRunner {
 
         recipeChicken.setCookTime(15);
         recipeChicken.setPrepTime(20);
+        recipeChicken.setServings(6);
         recipeChicken.setDifficulty(Difficulty.MODERATE);
         recipeChicken.setDirections("\n" +
                 "Prepare a gas or charcoal grill for medium-high, direct heat\n" +
@@ -74,7 +75,7 @@ public class RecipeLoaderData implements CommandLineRunner {
                 "Assemble the tacos:\n" +
                 "Slice the chicken into strips. On each tortilla, place a small handful of arugula. Top with chicken slices, sliced avocado, radishes, tomatoes, and onion slices. Drizzle with the thinned sour cream. Serve with lime wedges.");
         recipeChicken.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
-        recipeChicken.setSource("Source");
+        recipeChicken.setSource("simplyrecipes");
         recipeChicken.setNotes(new Notes("Look for ancho chile powder with the Mexican ingredients at your grocery store, on buy it online. (If you can't find ancho chili powder, you replace the ancho chili, the oregano, and the cumin with 2 1/2 tablespoons regular chili powder, though the flavor won't be quite the same.)"));
 
         recipeChicken.addIngredient(getIngredient(2, "ancho chili powder", tablespoon));
@@ -117,6 +118,7 @@ public class RecipeLoaderData implements CommandLineRunner {
 
         recipeChicken.setCookTime(10);
         recipeChicken.setPrepTime(10);
+        recipeChicken.setServings(4);
         recipeChicken.setDifficulty(Difficulty.EASY);
         recipeChicken.setDirections("Cut the avocado:\n" +
                 "Cut the avocados in half. Remove the pit. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl." +
@@ -140,7 +142,7 @@ public class RecipeLoaderData implements CommandLineRunner {
                 "\n" +
                 "Note: Chilling tomatoes hurts their flavor. So, if you want to add chopped tomato to your guacamole, add it just before serving.");
         recipeChicken.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
-        recipeChicken.setSource("Source");
+        recipeChicken.setSource("simplyrecipes");
         recipeChicken.setNotes(new Notes("Be careful handling chilis! If using, it's best to wear food-safe gloves. If no gloves are available, wash your hands thoroughly after handling, and do not touch your eyes or the area near your eyes for several hours afterwards."));
 
         recipeChicken.addIngredient(getIngredient(2, "Avocados", unit));
