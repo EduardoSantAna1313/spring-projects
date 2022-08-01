@@ -100,7 +100,9 @@
         <div class="col-md-6 offset-md-3">
             <div class="card border-primary">
                 <div class="card-header bg-primary">
-                    <h2>Ingredients</h2>
+                    <span class="fs-3">Ingredients</span>
+
+                    <a class="btn btn-secondary float-end" href="#" th:href="@{'/recipe/delete/' + ${recipe.id}}">View</a>
                 </div>
 
                 <div class="card-body">

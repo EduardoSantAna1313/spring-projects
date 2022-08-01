@@ -7,7 +7,6 @@ package br.com.edu.recipe.app.controllers;
 import br.com.edu.recipe.app.repositories.CategoryRepository;
 import br.com.edu.recipe.app.repositories.UnitOfMeasureRepository;
 import br.com.edu.recipe.app.services.RecipeService;
-import br.com.edu.recipe.app.services.impl.RecipeServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

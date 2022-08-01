@@ -4,8 +4,6 @@ import br.com.edu.recipe.app.domain.Category;
 import br.com.edu.recipe.app.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-
 @Service
 public class CategoryService {
 
