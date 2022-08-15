@@ -3,6 +3,7 @@ package br.com.edu.recipe.app.services.impl;
 import br.com.edu.recipe.app.domain.Recipe;
 import br.com.edu.recipe.app.repositories.IngredientRepository;
 import br.com.edu.recipe.app.repositories.NotesRepository;
+import br.com.edu.recipe.app.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

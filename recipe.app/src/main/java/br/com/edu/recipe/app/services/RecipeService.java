@@ -1,5 +1,6 @@
 package br.com.edu.recipe.app.services;
 
+import br.com.edu.recipe.app.command.RecipeCommand;
 import br.com.edu.recipe.app.domain.Recipe;
 
 import java.util.Set;
@@ -9,4 +10,6 @@ public interface RecipeService {
     public Set<Recipe> listAll();
 
     public Recipe findById(Long id);
+
+    RecipeCommand saveRecipeCommand(RecipeCommand command);
 }
