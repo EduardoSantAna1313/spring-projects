@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>br.com.edu</groupId>
+	<artifactId>socket-test</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Socket Test</name>
+	<description>Socket Test</description>
+	<properties>
+		<java.version>11</java.version>
+		<spotless.version>2.36.0</spotless.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.diffplug.spotless</groupId>
+			<artifactId>spotless-maven-plugin</artifactId>
+			<version>${spotless.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>${spotless.version}</version>
+				<configuration>
+					<!-- optional: limit format enforcement to just the files changed by this feature branch -->
+					<ratchetFrom>origin/main</ratchetFrom>
+
+					<!-- define a language-specific format -->
+					<java>
+						<!-- no need to specify files, inferred automatically, but you can if you want -->
+
+						<googleJavaFormat/> // this works
+						<indent><spaces>true</spaces><spacesPerTab>4</spacesPerTab></indent>
+
+						<!-- make sure every file has the following copyright header.
+                          optionally, Spotless can set copyright years by digging
+                          through git history (see "license" section below) -->
+						<licenseHeader>
+							<content>/* Spring app (C)$YEAR */</content>  <!-- or <file>${project.basedir}/license-header</file> -->
+						</licenseHeader>
+					</java>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

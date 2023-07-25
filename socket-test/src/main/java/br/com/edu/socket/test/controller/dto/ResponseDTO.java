@@ -1,4 +1,5 @@
-package br.com.edu.socket.test.controller;
+/* Spring app (C)2023 */
+package br.com.edu.socket.test.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,5 +8,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class ResponseDTO {
 
-    private String serverName;
+  private String serverName;
 }
