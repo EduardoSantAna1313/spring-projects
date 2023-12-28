@@ -107,10 +107,10 @@
 
                 <div class="card-body">
                     <ul>
-                        <li th:each="ingredient : ${recipe.ingredients}"
-                            th:text="${(ingredient.amount + ' '
-                                + ingredient.unitOfMeasure.description + ' of '
-                                + ingredient.description)}"
+                        <li th:each="ingredient : ${recipe?.ingredients}"
+                            th:text="${(ingredient?.amount + ' '
+                                + ingredient?.unitOfMeasure.description + ' of '
+                                + ingredient?.description)}"
                         >1 Teaspoon of sugar</li>
                     </ul>
                 </div>
@@ -128,7 +128,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <p th:text="${recipe.directions}">Directions....</p>
+                            <p th:text="${recipe?.directions}">Directions....</p>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="card-body">
-                    <p th:text="${recipe.notes.note}">Notes....</p>
+                    <p th:text="${recipe?.notes?.note}">Notes....</p>
                 </div>
             </div>
         </div>

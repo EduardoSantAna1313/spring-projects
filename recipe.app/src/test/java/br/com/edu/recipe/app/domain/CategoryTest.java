@@ -1,9 +1,11 @@
+/* (C)2023 */
 package br.com.edu.recipe.app.domain;
 
+import static org.junit.Assert.*;
+
+import br.com.edu.recipe.app.domain.model.Category;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class CategoryTest {
 
@@ -22,10 +24,8 @@ public class CategoryTest {
     }
 
     @Test
-    public void getDescription() {
-    }
+    public void getDescription() {}
 
     @Test
-    public void getRecipes() {
-    }
+    public void getRecipes() {}
 }

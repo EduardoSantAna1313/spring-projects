@@ -1,6 +1,12 @@
+/* (C)2023 */
 package br.com.edu.recipe.app.repositories;
 
-import br.com.edu.recipe.app.domain.UnitOfMeasure;
+import static org.junit.Assert.*;
+
+import br.com.edu.recipe.app.domain.model.UnitOfMeasure;
+import br.com.edu.recipe.app.domain.repositories.UnitOfMeasureRepository;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,11 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -22,8 +23,7 @@ public class UnitOfMeasureRepositoryIT {
     UnitOfMeasureRepository repository;
 
     @Before
-    public void setUp() throws Exception {
-    }
+    public void setUp() throws Exception {}
 
     @Test
     @DirtiesContext
@@ -60,5 +60,4 @@ public class UnitOfMeasureRepositoryIT {
 
         assertEquals(10, list.size());
     }
-
 }

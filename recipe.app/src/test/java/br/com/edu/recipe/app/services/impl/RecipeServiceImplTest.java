@@ -1,19 +1,20 @@
+/* (C)2023 */
 package br.com.edu.recipe.app.services.impl;
 
-import br.com.edu.recipe.app.domain.Recipe;
-import br.com.edu.recipe.app.repositories.IngredientRepository;
-import br.com.edu.recipe.app.repositories.NotesRepository;
-import br.com.edu.recipe.app.repositories.RecipeRepository;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import br.com.edu.recipe.app.domain.model.Recipe;
+import br.com.edu.recipe.app.domain.repositories.IngredientRepository;
+import br.com.edu.recipe.app.domain.repositories.NotesRepository;
+import br.com.edu.recipe.app.domain.repositories.RecipeRepository;
+import br.com.edu.recipe.app.domain.services.impl.RecipeServiceImpl;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.HashSet;
-import java.util.Set;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
 
