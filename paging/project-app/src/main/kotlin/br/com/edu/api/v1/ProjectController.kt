@@ -7,8 +7,7 @@ import br.com.edu.domain.model.User
 import br.com.edu.domain.repository.ProjectRepository
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.data.domain.Pageable
-import org.springframework.hateoas.CollectionModel
-import org.springframework.hateoas.PagedModel
+import org.springframework.data.web.PagedResourcesAssembler
 import org.springframework.hateoas.RepresentationModel
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,12 +20,15 @@ import org.springframework.web.bind.annotation.RestController
 import java.net.URI
 import java.util.*
 
-
 @RestController
 @RequestMapping("/projects")
 class ProjectController(
+
     private val repository: ProjectRepository,
-    private val service: ProjectService
+
+    private val service: ProjectService,
+
+    private val assembler: PagedResourcesAssembler<Project>
 ) {
 
     @PostMapping
@@ -47,11 +49,11 @@ class ProjectController(
     }
 
     @GetMapping()
-    fun listAll(pageable: Pageable) : ResponseEntity<CollectionModel<Project>> {
+    fun listAll(pageable: Pageable) : ResponseEntity<Any> {
 
         val page = repository.findAll(pageable)
 
-        return ResponseEntity.ok(PagedModel.of(page.content))
+        return ResponseEntity.ok(assembler.toModel(page))
     }
 
     @GetMapping("/{projectId}")
@@ -74,3 +76,4 @@ class ProjectResponse(
     @JsonProperty("description")
     val description: String?
 ) : RepresentationModel<ProjectResponse>()
+
